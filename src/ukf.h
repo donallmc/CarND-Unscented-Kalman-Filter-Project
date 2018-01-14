@@ -64,6 +64,9 @@ public:
   ///* Augmented state dimension
   int n_aug_;
 
+  ///* Sigma points
+  int n_sig_;
+
   ///* Sigma point spreading parameter
   double lambda_;
 
@@ -102,6 +105,10 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+
+  void Initialize(MeasurementPackage measurement_pack);
+
+  bool IsValidMeasurement(MeasurementPackage meas_package);  
 };
 
 #endif /* UKF_H */
